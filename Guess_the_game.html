@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number game</title>
+    <style>
+       .container{
+        margin-top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Guess the Number Game</h1>
+    <label for="number">
+        Enter the number to guess:
+        <input type="number" name="number" id="num" min="1" max="8">
+    </label>
+    <br>
+    <br>
+    <button id="btn" style="cursor: pointer;">Submit</button>
+    <p id="result"></p>
+    </div>
+</body>
+<script>
+    const num = document.getElementById('num');
+    const btn = document.getElementById('btn')
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', () => {
+        let usernumber = Number(num.value);
+        let correctNumber = 5;
+
+        if (usernumber >= 1 && usernumber <= 8) {
+            switch (usernumber) {
+                case 1:
+                    result.innerText = 'Too too low';
+                    break;
+                case 2:
+                    result.innerText = 'too low';
+                    break;
+                case 3:
+                    result.innerText = 'low';
+                    break;
+                case 4:
+                    result.innerText = 'Very close';
+                    break;
+                case 5:
+                    result.innerText = 'CORRECT NUMBER';
+                    document.body.style.backgroundColor = 'green';
+                    result.style.color = 'white';
+                    break;
+                case 6:
+                    result.innerText = 'very close';
+                    break;
+                case 7:
+                    result.innerText = 'high';
+                    break;
+                case 8:
+                    result.innerText = 'too high';
+                    break;
+                default:
+                    result.innerText = 'Invalid prompt';
+            }
+        }
+        else{
+            result.innerText = "Enter valid input";
+        }
+
+    })
+</script>
+
+</html>
